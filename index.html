@@ -1,1 +1,1126 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christopher Shelley | Freelance Developer</title>
+  <meta
+    name="description"
+    content="Christopher Shelley is a freelance developer offering professional websites, systems, dashboards, portals, and custom solutions for clients seeking serious, high-quality work."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0c1729;
+      --panel: rgba(15, 27, 46, 0.75);
+      --panel-solid: #0f1b2e;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.14);
+      --text: #f4f7fb;
+      --muted: #b8c4d6;
+      --soft: #d8e2f0;
+      --accent: #7aa7ff;
+      --accent-2: #b7cbff;
+      --gold: #dfc27d;
+      --success: #9ee6b0;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(77, 124, 255, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(223, 194, 125, 0.10), transparent 25%),
+        linear-gradient(180deg, #07111f 0%, #081221 38%, #0a1322 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(122, 167, 255, 0.24), rgba(223, 194, 125, 0.14));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--soft);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text span:first-child {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7aa7ff, #9cbcff);
+      color: #07111f;
+      box-shadow: 0 16px 35px rgba(122, 167, 255, 0.26);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.10);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 92px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .pricing-card,
+    .service-card,
+    .process-card,
+    .faq-item,
+    .contact-card {
+      background: var(--panel);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      border-radius: var(--radius-xl);
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(122, 167, 255, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--accent-2);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 20px 0 16px;
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      max-width: 11ch;
+    }
+
+    .hero p.lead {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-cta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-metrics {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-side {
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .profile-frame {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-caption {
+      padding: 16px 2px 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mini-panel {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mini-row strong {
+      color: var(--soft);
+      font-weight: 700;
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .section-card {
+      padding: 30px;
+      border-radius: 24px;
+    }
+
+    .section-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .section-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .split-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .split-list div {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--soft);
+      font-size: 0.96rem;
+    }
+
+    .services-grid,
+    .pricing-grid,
+    .process-grid,
+    .faq-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .service-card {
+      padding: 28px;
+      border-radius: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 130px;
+      height: 130px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(122, 167, 255, 0.13), transparent 70%);
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: var(--accent-2);
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .service-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--soft);
+    }
+
+    .service-card li + li {
+      margin-top: 8px;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      border-radius: 24px;
+      padding: 30px;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      transform: translateY(-8px);
+      border-color: rgba(122, 167, 255, 0.34);
+      box-shadow: 0 30px 80px rgba(122, 167, 255, 0.12);
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(122, 167, 255, 0.12);
+      border: 1px solid rgba(122, 167, 255, 0.20);
+      color: var(--accent-2);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pricing-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+    }
+
+    .pricing-card p {
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .price-number {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .price-number strong {
+      font-size: 2.5rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .price-number span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .pricing-card ul {
+      margin: 0 0 24px;
+      padding-left: 18px;
+      color: var(--soft);
+    }
+
+    .pricing-card li + li {
+      margin-top: 9px;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .process-card {
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .process-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .process-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .process-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .faq-item {
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.04rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      border-radius: 28px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .contact-panel {
+      padding: 6px 0;
+    }
+
+    .contact-panel h2 {
+      margin-top: 0;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 60ch;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .contact-box {
+      border-radius: 18px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-box small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-box strong,
+    .contact-box a {
+      color: var(--text);
+      font-size: 1rem;
+      word-break: break-word;
+    }
+
+    .contact-side {
+      border-radius: 24px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-side h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .contact-side p {
+      color: var(--muted);
+    }
+
+    .contact-side ol {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--soft);
+    }
+
+    .contact-side li + li {
+      margin-top: 10px;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(223, 194, 125, 0.08);
+      border: 1px solid rgba(223, 194, 125, 0.16);
+      color: #f3e2b3;
+      font-size: 0.94rem;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .contact-card,
+      .services-grid,
+      .pricing-grid,
+      .process-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+
+      .hero-side .profile-frame img {
+        height: 380px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .section-card,
+      .pricing-card,
+      .service-card,
+      .process-card,
+      .faq-item,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-frame img {
+        height: 320px;
+      }
+
+      .hero h1 {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <div class="brand-mark">CS</div>
+        <div class="brand-text">
+          <span>Christopher Shelley</span>
+          <span>Freelance Developer</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="mailto:christophershelley257@gmail.com?subject=Freelance%20Work">Hire Me</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <div class="eyebrow">Professional Development Services</div>
+          <h1>Built to make clients want to work with you.</h1>
+          <p class="lead">
+            I create professional websites, custom systems, dashboards, portals, and development solutions for clients who want serious work done properly. My focus is clear communication, polished execution, and dependable results that feel premium from beginning to end.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="mailto:christophershelley257@gmail.com?subject=Freelance%20Work">Start a Project</a>
+            <a class="btn btn-secondary" href="#pricing">View Pricing</a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <strong>Professional</strong>
+              <span>Clear communication and structured delivery</span>
+            </div>
+            <div class="metric">
+              <strong>Custom</strong>
+              <span>Solutions built around project-specific needs</span>
+            </div>
+            <div class="metric">
+              <strong>Reliable</strong>
+              <span>Focused on quality, usability, and presentation</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="profile-frame">
+            <img src="assets/profile-photo.jpg" alt="Christopher Shelley portrait" />
+          </div>
+
+          <div class="profile-caption">
+            A professional, direct, and client-focused developer available for freelance work.
+          </div>
+
+          <div class="mini-panel">
+            <div class="mini-row">
+              <span>Primary Contact</span>
+              <strong>christophershelley257@gmail.com</strong>
+            </div>
+            <div class="mini-row">
+              <span>Email Subject</span>
+              <strong>Freelance Work</strong>
+            </div>
+            <div class="mini-row">
+              <span>Project Intake</span>
+              <strong>Custom Quote After Review</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>About Me</h2>
+          </div>
+          <p>
+            This page is designed to present you as professional, trustworthy, and worth hiring. It keeps the focus on your real-world freelance work and makes the hiring path simple and credible.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="section-card">
+            <h3>Professional Introduction</h3>
+            <p>
+              I am Christopher Shelley, a freelance developer dedicated to building polished and effective digital solutions. I work with clients who need more than something basic — they need work that looks professional, functions correctly, and leaves a strong impression.
+            </p>
+
+            <div class="split-list">
+              <div>Professional websites with premium presentation</div>
+              <div>Custom tools, portals, and internal systems</div>
+              <div>Clean structure, strong usability, and clear communication</div>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <h3>What Clients Can Expect</h3>
+            <p>
+              My approach is centered on understanding the project, presenting clear expectations, and delivering work that feels deliberate and high-value. I want clients to feel confident that their project is in capable hands.
+            </p>
+
+            <div class="split-list">
+              <div>Direct project discussions and requirement review</div>
+              <div>Professional communication from inquiry to delivery</div>
+              <div>Pricing shared after reviewing scope and complexity</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Services</h2>
+          </div>
+          <p>
+            These offerings are written to position you as someone who can handle both straightforward work and serious custom builds.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">01</div>
+            <h3>Website Development</h3>
+            <p>
+              Professionally designed websites built to present a person, business, service, or brand in a polished and persuasive way.
+            </p>
+            <ul>
+              <li>Personal websites and portfolios</li>
+              <li>Service-based business pages</li>
+              <li>Landing pages designed to convert interest</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">02</div>
+            <h3>Custom Systems</h3>
+            <p>
+              Purpose-built systems for organizations, workflows, and internal use cases where structure and efficiency matter.
+            </p>
+            <ul>
+              <li>Dashboards and control panels</li>
+              <li>Employee and member portals</li>
+              <li>Custom process-based tools</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">03</div>
+            <h3>Advanced Development Solutions</h3>
+            <p>
+              More complex work for clients who need tailored functionality, integrated logic, or a more premium overall result.
+            </p>
+            <ul>
+              <li>Automation-oriented solutions</li>
+              <li>Large multi-section site builds</li>
+              <li>Project-specific custom coding</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Pricing</h2>
+          </div>
+          <p>
+            These price points are structured to communicate value while still making it clear that final pricing depends on project scope, features, and complexity.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="pricing-badge">Entry Level</div>
+            <h3>Basic Development</h3>
+            <p>For smaller projects that still need a professional standard of quality and presentation.</p>
+            <div class="price-number">
+              <strong>$50+</strong>
+              <span>starting range</span>
+            </div>
+            <ul>
+              <li>Simple pages or smaller code-based requests</li>
+              <li>Clean layout and polished design</li>
+              <li>Ideal for compact, focused work</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:christophershelley257@gmail.com?subject=Freelance%20Work">Request Quote</a>
+          </article>
+
+          <article class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <h3>Advanced Systems</h3>
+            <p>For clients who need more functionality, more pages, more structure, or more customization.</p>
+            <div class="price-number">
+              <strong>$150+</strong>
+              <span>starting range</span>
+            </div>
+            <ul>
+              <li>Dashboards, portals, or larger websites</li>
+              <li>Multiple sections and stronger functionality</li>
+              <li>Better suited for long-term or serious builds</li>
+            </ul>
+            <a class="btn btn-primary" href="mailto:christophershelley257@gmail.com?subject=Freelance%20Work">Start Project Inquiry</a>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-badge">Custom Scope</div>
+            <h3>Enterprise Solutions</h3>
+            <p>For extensive, specialized, or large-scale work requiring deeper planning and tailored architecture.</p>
+            <div class="price-number">
+              <strong>Custom</strong>
+              <span>quote after review</span>
+            </div>
+            <ul>
+              <li>Complex systems and premium builds</li>
+              <li>Expanded feature requirements</li>
+              <li>Scope-based pricing after project discussion</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:christophershelley257@gmail.com?subject=Freelance%20Work">Discuss Scope</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>How Hiring Works</h2>
+          </div>
+          <p>
+            This makes the process feel organized and professional, which helps reassure potential clients that there is a real workflow in place.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="process-number">1</div>
+            <h3>Send Your Inquiry</h3>
+            <p>
+              Email me at christophershelley257@gmail.com with the subject line “Freelance Work” and explain your project in detail.
+            </p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-number">2</div>
+            <h3>Project Review</h3>
+            <p>
+              I review the request, assess the scope, and determine the estimated level of work required.
+            </p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-number">3</div>
+            <h3>Pricing & Next Steps</h3>
+            <p>
+              I respond with pricing details, expectations, and the next steps based on your project’s needs.
+            </p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-number">4</div>
+            <h3>Build Phase</h3>
+            <p>
+              Once the project is agreed upon, I move into development with a focus on quality, professionalism, and results.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Common Questions</h2>
+          </div>
+          <p>
+            These help reduce hesitation and make the site feel more complete and trustworthy.
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>Why is pricing listed as a starting range?</h3>
+            <p>
+              Because every project is different. Final pricing depends on complexity, functionality, time requirements, and the overall scope of work requested.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>What should I include in my email?</h3>
+            <p>
+              Include what you want built, what the project is for, what features you want, and any goals or expectations you already have in mind.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Do you offer custom quotes?</h3>
+            <p>
+              Yes. In fact, larger or more serious projects are typically priced through a custom quote after review of the request.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>How do I contact you for freelance work?</h3>
+            <p>
+              Email christophershelley257@gmail.com with the subject line “Freelance Work” and describe your project in detail.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-panel">
+            <h2>Ready to discuss your project?</h2>
+            <p>
+              If you want serious, polished work and a professional development experience, send your project request by email. I will review the details and respond with pricing information and next steps.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-box">
+                <small>Email</small>
+                <a href="mailto:christophershelley257@gmail.com?subject=Freelance%20Work">christophershelley257@gmail.com</a>
+              </div>
+
+              <div class="contact-box">
+                <small>Required Subject Line</small>
+                <strong>Freelance Work</strong>
+              </div>
+
+              <div class="contact-box">
+                <small>What to Send</small>
+                <strong>Project details, goals, requested features, and expectations</strong>
+              </div>
+            </div>
+
+            <div class="notice">
+              Pricing details are sent after reviewing your request so that quotes can better reflect the actual scope of the project.
+            </div>
+          </div>
+
+          <div class="contact-side">
+            <h3>Best Way to Reach Out</h3>
+            <p>
+              To get the most accurate response, structure your email like this:
+            </p>
+            <ol>
+              <li>State what you want built</li>
+              <li>Explain the purpose of the project</li>
+              <li>List any features or design expectations</li>
+              <li>Send it to the email listed here with the correct subject line</li>
+            </ol>
+
+            <div style="margin-top: 22px;">
+              <a class="btn btn-primary" href="mailto:christophershelley257@gmail.com?subject=Freelance%20Work">Email Christopher Shelley</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Christopher Shelley. All rights reserved.
+  </footer>
+</body>
+</html>
